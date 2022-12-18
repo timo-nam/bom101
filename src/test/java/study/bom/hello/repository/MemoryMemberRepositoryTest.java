@@ -20,17 +20,21 @@ class MemoryMemberRepositoryTest {
 
     @Test
     public void save() {
+        // given
         Member member = new Member();
         member.setName("Bom");
 
+        // when
         repository.save(member);
 
+        // then
         Member result = repository.findById(member.getId()).get();
         assertThat(result).isEqualTo(member);
     }
 
     @Test
     public void findByName() {
+        // given
         Member member1 = new Member();
         member1.setName("Bom 1");
         repository.save(member1);
@@ -39,13 +43,16 @@ class MemoryMemberRepositoryTest {
         member2.setName("Bom 2");
         repository.save(member2);
 
+        // when
         Member result = repository.findByName("Bom 1").get();
 
+        // then
         assertThat(result).isEqualTo(member1);
     }
 
     @Test
     public void findAll() {
+        // given
         Member member1 = new Member();
         member1.setName("Bom 1");
         repository.save(member1);
@@ -54,8 +61,10 @@ class MemoryMemberRepositoryTest {
         member2.setName("Bom 2");
         repository.save(member2);
 
+        // when
         List<Member> result = repository.findAll();
 
+        // then
         assertThat(result.size()).isEqualTo(2);
     }
 }

@@ -1,6 +1,7 @@
 package study.bom.hello.service;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import study.bom.hello.domain.Member;
 import study.bom.hello.repository.MemoryMemberRepository;
@@ -10,8 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
 
-    MemberService memberService = new MemberService();
-    MemoryMemberRepository memoryMemberRepository = new MemoryMemberRepository();
+    MemberService memberService;
+    MemoryMemberRepository memoryMemberRepository;
+
+    @BeforeEach
+    void beforeEach() {
+        memoryMemberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memoryMemberRepository);
+    }
 
     @AfterEach
     void afterEach() {

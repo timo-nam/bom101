@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import study.bom.hello.domain.Member;
 import study.bom.hello.repository.MemberRepository;
-import study.bom.hello.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;

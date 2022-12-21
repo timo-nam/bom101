@@ -3,6 +3,7 @@ package study.bom.hello;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import study.bom.hello.repository.JdbcMemberRepository;
+import study.bom.hello.repository.JdbcTemplateMemberRepository;
 import study.bom.hello.repository.MemberRepository;
 import study.bom.hello.service.MemberService;
 
@@ -24,6 +25,6 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
